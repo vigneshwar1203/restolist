@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>admin login</title>
+    <style>
+        body{
+            background-image:url('admin1.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size:cover;
+
+        }
+        .demo{
+            text-align:center;
+            margin-top:15%;
+
+            font-weight:bold;
+            background-color:white;
+            margin-left:33%;
+            margin-right:33%;
+            padding:1%;
+            opacity:0.7;
+            border-radius: 15px;
+        }
+
+        .header{
+            display:flex;
+            background-color:white;
+            height:60px;
+            opacity:0.7;
+            border-radius: 15px;
+
+        }
+        .div1{
+            width:33%;
+        }
+        .login__input {
+            border: none;
+            border-bottom: 2px solid #D1D1D4;
+            background: none;
+            padding: 10px;
+            padding-left: 24px;
+            font-weight: 700;
+            width: 75%;
+            transition: .2s;
+        }
+    </style>
+</head>
+<body>
+<section class="header">
+    <div class="div1">
+    </div>
+    <div class="div1"><h2 style="font-size:30px; color:blue;"><center>Admin Portal</center></h2></div>
+    <div class="div1">
+        <p style="float:right;"> <a href="resto.html"  width="50px">Logout</a></p>
+    </div>
+</section>
+<div class="demo">
+    <div class="bg-image"></div>
+    <form action="adminoperation">
+        <tr>
+            <td><input type="number" name="resid" class="login__input" placeholder="Restaurant-ID"></td>
+            <td><input type="text" name="resname"  class="login__input" placeholder="Restaurant-Name"></td>
+            <td><input type="text" name="resplace"  class="login__input" placeholder="Restaurant-Place"></td>
+            <td><input type="number" name="resprice" class="login__input" placeholder="Table-Price"></td>
+        </tr><br><br>
+        <tr>
+            <td><input type="submit" name="value" class="add" id="add-button" value="Add"></td>
+            <td><input type="submit" name="value" class="modify" id="modify-button" value="Modify"></td>
+            <td><input type="submit" name="value" class="delete" id="delete-button" value="Delete"></td>
+        </tr>
+    </form>
+</div>
+</body>
+</html>
