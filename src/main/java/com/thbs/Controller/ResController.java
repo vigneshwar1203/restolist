@@ -66,17 +66,16 @@ public class ResController
     }
 
     @RequestMapping(PropertyConstants.SIGNUP)
-    public String userop(HttpServletRequest request, Customer users)
+    public String signin(HttpServletRequest request, Customer cust)
     {
-        System.out.println("success");
         switch (request.getParameter("value"))
         {
-            case PropertyConstants.SIGNIN:
-                System.out.println("1234");
-                custRepo.save(users);
+            case "Signup":
+                System.out.println("done");
+                System.out.println(cust);
+                custRepo.save(cust);
                 break;
         }
-        System.out.println("987");
         return "index.html";
     }
 
@@ -96,8 +95,9 @@ public class ResController
     }*/
 
     /*@PostMapping("/check")
-    public String login (@ModelAttribute("user") Users user){
-        Optional<Users> searchUser = userRepository.findById(user.getEmail());
+    public String login (@ModelAttribute("user") Users user)
+    {
+        Optional<Users> searchUser = userRepository.findById(user.getSlno());
         if(searchUser.isPresent())
         {
             Users u1= searchUser.get();

@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService
     @Override
     public String findByemail(Users user)
     {
-
         Optional<Users> searchUser = usersRepository.findById(user.getSlno());
         if (searchUser.isPresent()) {
             Users userFromDb = searchUser.get();
