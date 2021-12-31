@@ -2,8 +2,6 @@ package com.thbs.Repository;
 
 import com.thbs.Model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface userRepository extends JpaRepository<Users, Integer> {
+public interface userRepository extends JpaRepository<Users, String> {
 }

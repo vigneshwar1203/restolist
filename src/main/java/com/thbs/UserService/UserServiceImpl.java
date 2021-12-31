@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService
     @Override
     public String findByemail(Users user)
     {
-        Optional<Users> searchUser = usersRepository.findById(user.getSlno());
+        Optional<Users> searchUser = usersRepository.findById(user.getEmail());
         if (searchUser.isPresent()) {
             Users userFromDb = searchUser.get();
             if ((user.getPassword().equals(userFromDb.getPassword()))) {
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService
     @Override
     public String signIn(Users user)
     {
-        Optional<Users> searchUser = usersRepository.findById(user.getSlno());
+        Optional<Users> searchUser = usersRepository.findById(user.getEmail());
         if (searchUser.isPresent())
         {
             Users userFound = searchUser.get();

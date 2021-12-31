@@ -1,6 +1,5 @@
 package com.thbs.Model;
 
-import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,16 +7,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
 public class Users
 {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int slno;
-    private String email, password;
+    @Id
+    private String email;
+    private String password;
 
+    public Users()
+    {
+        super();
+    }
+
+    public Users(int slno, String email, String password) {
+        super();
+        this.slno = slno;
+        this.email = email;
+        this.password = password;
+    }
 
     public int getSlno() {
         return slno;
@@ -43,6 +51,12 @@ public class Users
         this.password = password;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Users{" +
+                "slno=" + slno +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

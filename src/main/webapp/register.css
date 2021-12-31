@@ -92,7 +92,8 @@ input[type="radio"]{
 #login:checked ~ label.signup{
   color: #000;
 }
-#login:checked ~ label.login{
+#login:checked ~ label.lo
+gin{
   cursor: default;
   user-select: none;
 }

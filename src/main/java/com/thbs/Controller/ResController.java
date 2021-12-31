@@ -32,8 +32,11 @@ public class ResController
     @Autowired
     UserService userService;
 
+    @Autowired
+    userRepository userRepo;
 
-    @RequestMapping(PropertyConstants.TYPE)
+
+    @PostMapping(PropertyConstants.TYPE)
     public String admin(HttpServletRequest request)
     {
         if(request.getParameter("value").equals("admin")&&request.getParameter("value").equals("admin123"))
@@ -65,7 +68,7 @@ public class ResController
         return "adminoperations.html";
     }
 
-    @RequestMapping(PropertyConstants.SIGNUP)
+    @RequestMapping("register")
     public String signin(HttpServletRequest request, Customer cust)
     {
         switch (request.getParameter("value"))
@@ -79,33 +82,20 @@ public class ResController
         return "index.html";
     }
 
-    /*@PostMapping("/users/login")
-    public Status loginUser(@Valid @RequestBody Users user) {
-        List<Users> users = userRepository.findAll();
-
-        for (Users other : users) {
-            if (other.equals(user)) {
-                user.setLoggedIn(true);
-                userRepository.save(user);
-                return Status.SUCCESS;
-            }
-        }
-
-        return Status.FAILURE;
-    }*/
-
-    /*@PostMapping("/check")
-    public String login (@ModelAttribute("user") Users user)
+    @RequestMapping("rest")
+    public String login(@ModelAttribute("user") Users u1)
     {
-        Optional<Users> searchUser = userRepository.findById(user.getSlno());
+        Optional<Customer> searchUser = custRepo.findById(u1.getEmail());
         if(searchUser.isPresent())
         {
-            Users u1= searchUser.get();
-            if(user.getPassword().equals(u1.getPassword()))
-                return "home.html";
-           return "login.html";
+            Customer c1= searchUser.get();
+            if(u1.getPassword().equals(c1.getPassword())) {
+                System.out.println("success");
+                return "resto.html";
+            }
+            return "login.html";
         }
         else
             return "login.html";
-    }*/
+    }
 }

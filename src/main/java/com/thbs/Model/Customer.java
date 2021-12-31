@@ -11,10 +11,12 @@ import javax.persistence.Id;
 
 public class Customer
 {
-    @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int slno;
-    private String name, email, password,confirm_password;
+    @Id
+    private String email;
+    private String name, password,confirm_password;
     private int phone_no;
 
     public int getSlno() {
