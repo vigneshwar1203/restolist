@@ -1,6 +1,5 @@
 package com.thbs.Controller;
 
-import ch.qos.logback.core.status.Status;
 import com.thbs.Model.Customer;
 import com.thbs.Model.Users;
 import com.thbs.Model.restaurants;
@@ -13,11 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -34,7 +31,6 @@ public class ResController
 
     @Autowired
     userRepository userRepo;
-
 
     @PostMapping(PropertyConstants.TYPE)
     public String admin(HttpServletRequest request)
