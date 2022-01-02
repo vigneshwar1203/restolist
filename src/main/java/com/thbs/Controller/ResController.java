@@ -10,13 +10,14 @@ import com.thbs.UserService.UserService;
 import com.thbs.constants.PropertyConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+@RestController
 @Controller
 public class ResController
 {
@@ -85,13 +86,22 @@ public class ResController
         if(searchUser.isPresent())
         {
             Customer c1= searchUser.get();
-            if(u1.getPassword().equals(c1.getPassword())) {
+            if(u1.getPassword().equals(c1.getPassword()))
+            {
                 System.out.println("success");
-                return "resto.html";
+                return "gallery.html";
             }
             return "login.html";
         }
         else
             return "login.html";
+    }
+
+    @GetMapping("/restaur")
+    private List<restaurants> getAllBooks()
+    {
+        List<restaurants> books = new ArrayList<restaurants>();
+        restaurantRepo.findAll().forEach(books1 -> books.add(books1));
+        return books;
     }
 }
