@@ -10,14 +10,16 @@ import com.thbs.UserService.UserService;
 import com.thbs.constants.PropertyConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
-@RestController
+import static com.thbs.constants.PropertyConstants.SIGNUP;
+
+
 @Controller
 public class ResController
 {
@@ -46,7 +48,7 @@ public class ResController
         }
     }
 
-    @RequestMapping(PropertyConstants.ADMINOP)
+    @RequestMapping(value = PropertyConstants.ADMINOP,method = RequestMethod.GET)
     public String adminop(HttpServletRequest request,restaurants rest)
     {
         switch (request.getParameter("value"))
@@ -62,10 +64,10 @@ public class ResController
                 restaurantRepo.delete(rest);
                 break;
         }
-        return "adminoperations.html";
+        return "adminoperations";
     }
 
-    @RequestMapping("register")
+    @RequestMapping(value=PropertyConstants.SIGNUP, method=RequestMethod.GET)
     public String signin(HttpServletRequest request, Customer cust)
     {
         switch (request.getParameter("value"))
@@ -102,6 +104,14 @@ public class ResController
     {
         List<restaurants> books = new ArrayList<restaurants>();
         restaurantRepo.findAll().forEach(books1 -> books.add(books1));
+        return books;
+    }
+
+    @GetMapping("/us")
+    private List<Customer> getAllCustomer()
+    {
+        List<Customer> books = new ArrayList<Customer>();
+        custRepo.findAll().forEach(books1 -> books.add(books1));
         return books;
     }
 }
