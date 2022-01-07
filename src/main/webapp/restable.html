@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:border="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>restable</title>
+</head>
+<style>
+    .container{
+        margin-top:15%;
+        font-weight:bold;
+        width: 400px;
+        padding:1%;
+        border-radius: 15px;
+    }
+    body{
+        margin-top: 5%;
+        background-color: white;
+    }
+</style>
+<body>
+<h3><center>List of Restaurants</center></h3>
+<div class="container">
+    <table class="table table-bordered table-sripped">
+        <thead>
+        <tr>
+            <th>resid</th>
+            <th>resname</th>
+            <th>resplace</th>
+            <th>resprice</th>
+        </tr>
+        </thead>
+        <tbody id="data">
+
+        </tbody>
+    </table>
+</div>
+<script>
+    fetch("http://localhost:8085/restaurant").then(
+        res=>{
+            res.json().then(
+                data=>{
+                    console.log(data);
+                    if(data.length > 0){
+                        var temp = "";
+
+                        data.forEach((u)=>{
+                            temp +="<tr>";
+                            temp +="<td>"+u.resid+"</td>";
+                            temp +="<td>"+u.resname+"</td>";
+                            temp +="<td>"+u.resplace+"</td>";
+                            temp +="<td>"+u.resprice+"</td></tr>";
+                        })
+                        document.getElementById("data").innerHTML=temp;
+                    }
+                }
+            )
+        }
+    )
+</script>
+</body>
+</html>

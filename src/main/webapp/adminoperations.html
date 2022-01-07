@@ -5,20 +5,26 @@
         body{
             background-image:url('admin1.png');
             background-repeat: no-repeat;
-            background-attachment: fixed;
             background-size:cover;
 
         }
-        .demo{
-            text-align:center;
-            margin-top:15%;
+        .test{
+            display: flex;
+        }
 
+        .demo1{
+            width: 50%;
+        }
+
+        .demo{
+            text-align: center;
+            margin-top: 15%;
+            float:right;
+            width: 50%;
             font-weight:bold;
             background-color:white;
             margin-left:33%;
-            margin-right:33%;
-            padding:1%;
-            opacity:0.7;
+            opacity:0.8;
             border-radius: 15px;
         }
 
@@ -40,7 +46,6 @@
             padding: 10px;
             padding-left: 24px;
             font-weight: 700;
-            width: 75%;
             transition: .2s;
         }
     </style>
@@ -51,9 +56,17 @@
     </div>
     <div class="div1"><h2 style="font-size:30px; color:blue;"><center>Admin Portal</center></h2></div>
     <div class="div1">
-        <p style="float:right;"> <a href="resto.html"  width="50px">Logout</a></p>
+        <p style="float:right;"> <a href="index.html"  width="50px">Logout</a></p>
     </div>
 </section>
+<br><br>
+
+<section class="test">
+    <div class="demo1">
+    <iframe src="restable.html" width="130%" height="400" style="border:1px solid black;"></iframe>
+    </div>
+
+
 <div class="demo">
     <div class="bg-image"></div>
     <form action="adminoperation">
@@ -70,5 +83,6 @@
         </tr>
     </form>
 </div>
+</section>
 </body>
 </html>

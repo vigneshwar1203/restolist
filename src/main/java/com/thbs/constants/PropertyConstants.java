@@ -2,7 +2,7 @@ package com.thbs.constants;
 
 public class PropertyConstants
 {
-    public static final String TYPE="type";
+    //public static final String TYPE="type";
     public static final String ADMINOP="adminoperation";
     public static final String ADD="Add";
     public static final String MODIFY="Modify";

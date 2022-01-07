@@ -2,7 +2,6 @@ package com.thbs.Model;
 import javax.persistence.*;
 
 @Entity
-@Table
 public class restaurants
 {
     @Id

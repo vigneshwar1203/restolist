@@ -1062,8 +1062,11 @@ body{
 	.center-grid1 {
 		margin: 0;
 	}
-	.about-team-right {
+	.about-team-right p {
 		width: 82%;
+		color: red;
+		font-family: courier;
+		font-size: 160%;
 	}
 	.about-team-left {
 		width: 17%;

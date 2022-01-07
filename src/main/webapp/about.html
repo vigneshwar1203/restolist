@@ -1,137 +1,186 @@
-<!--
-Author: TEAM5
--->
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title> Hotel Website | About</title>
-		<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
-		<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-	</head>
-	<body>
-		<!---start-Wrap--->
-			<!---start-header--->
-			<div class="header">
-				<div class="wrap">
-					<div class="header-top">
-						<div class="logo">
-							<a href="homepage.html"><h2 style="font-family:Sofia,sans-serif; font-size:50px;">Restolist</h2></a>
-						</div>
-						<div class="contact-info">
-							<p class="phone">Call us : <a href="#">9860767468</a></p>
-							<p class="gpa">Gpa : <a href="#">View map</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard user profile page design using Bootstrap 4</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link href="about.css" rel="stylesheet" type="text/css"  media="all" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,900&display=swap');
+    h1 {
+        position: absolute;
+        left: 50%;
+        top: 5%;
+        transform: translate(-50%, -50%);
+        display: block;
+        color: #cf1b1b;
+        font-size: 50px;
+        letter-spacing: 8px;
+        cursor: pointer;
+    }
 
-						</div>
-						<div class="clear"> </div>
-					</div>
-				</div>
-				<div class="header-top-nav">
-					<div class="wrap">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li class="active"><a href="about.html">About</a></li>
+    h1::before {
+        content: "OUR SQUAD";
+        position: absolute;
+        color: transparent;
+        background-image: repeating-linear-gradient(
+                45deg,
+                transparent 0,
+                transparent 2px,
+                white 2px,
+                white 4px
+        );
+        -webkit-background-clip: text;
+        top: 0px;
+        left: 0;
+        z-index: -1;
+        transition: 1s;
+    }
 
-							<li><a href="gallery.html">restaurants</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="#">logout</a></li>
-							<div class="clear"> </div>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!---End-header--->
-			<div class="clear"> </div>
-			<!---start-content----->
-			<div class="content">
-				<div class="wrap">
-				<!---start-about---->
-				<div class="about">
-				<div class="about-grids">
-					<div class="about-grid">
-						<h3>About Our Hotel</h3>
-						<a href="#"><img src="images/slider1.jpg" title="about"></a>
-						<span>"Description about your hotel"</span>
-						<p> Feel like home.</p>
-						<a class="button1" href="#">Read More</a>
-					</div>
-					<div class="about-grid center-grid1">
-						<h3>WHY CHOOSE US?</h3>
-						<p>Your Description Here</p>
-						<label>Label Heading </label>
-						<p>Your Description</p>
-						<label>Label heading</label>
-						<p>Your Description</p>
-					</div>
-					<div class="about-grid last-grid">
-						<h3>Our Hotel's Staff Info.</h3>
-						<div class="about-team">
-							<div class="client">
-								<div class="about-team-left">
-									<a href="#"><img src="images/c1.jpg" title="client-name"></a>
-								</div>
-								<div class="about-team-right">
-									<p> Staff's Description</p>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="client">
-								<div class="about-team-left">
-									<a href="#"><img src="images/c2.jpg" title="client-name"></a>
-								</div>
-								<div class="about-team-right">
-									<p>Staff's Description</p>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="client">
-								<div class="about-team-left">
-									<a href="#"><img src="images/c1.jpg" title="client-name"></a>
-								</div>
-								<div class="about-team-right">
-									<p>Staff's Description</p>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="client">
-								<div class="about-team-left">
-									<a href="#"><img src="images/c2.jpg" title="client-name"></a>
-								</div>
-								<div class="about-team-right">
-									<p>Staff's Description</p>
-								</div>
-								<div class="clear"> </div>
-							</div>
-						</div>
-					</div>
-					<div class="clear"> </div>
-				</div>
-			</div>
-			</div>
-				<!---End-about---->
-				<div class="clear"> </div>
-				<div class="boxs">
-				<div class="wrap">
-				<div class="box">
-			
-				</div>
+    h1::after {
+        content: "OUR SQUAD";
+        position: absolute;
+        color: transparent;
+        background-image: repeating-linear-gradient(
+                135deg,
+                transparent 0,
+                transparent 2px,
+                white 2px,
+                white 4px
+        );
+        -webkit-background-clip: text;
+        top: 0px;
+        left: 0px;
+        transition: 1s;
+    }
 
-				<div class="box">
-					
-				</div>
-				<div class="clear"> </div>
-			</div>
-			<!---start-box---->
-		</div>
-		<!---start-copy-Right----->
-		<div class="copy-tight">
-			<p>&copy Restolist</p>
-		</div>
-		<!---End-copy-Right----->
-			</div>
-			<!---End-content----->
-		</div>
-		<!---End-Wrap--->
-	</body>
+    h1:hover:before {
+        top: 10px;
+        left: 10px;
+    }
+
+    h1:hover:after {
+        top: -10px;
+        left: -10px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<h1>OUR SQUAD</h1><br><br><br>
+   <br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="div-box">
+        <div class="User-img">
+          <img src="c1.jpg">
+        </div>
+        <h3 class="User-name">Priyanka</h3>
+        <h4 class="designation">Priyanka123@gmail.com</h4>
+        <div class="contact-btn">
+          
+          <button type="button" class="btn btn-success">Message</button>
+        </div>
+        <div class="profile-details">
+          <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Overview</a></li>
+            
+            <li><a href="#"><i class="fas fa-flag"></i> Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+      <div class="div-box">
+        <div class="User-img">
+          <img src="c1.jpg">
+        </div>
+        <h3 class="User-name">Pavan Kumar</h3>
+        <h4 class="designation">pavan225@gmail.com</h4>
+        <div class="contact-btn">
+          
+          <button type="button" class="btn btn-success">Message</button>
+        </div>
+        <div class="profile-details">
+          <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Overview</a></li>
+           
+            <li><a href="#"><i class="fas fa-flag"></i> Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+      <div class="div-box">
+        <div class="User-img">
+          <img src="c1.jpg">
+        </div>
+        <h3 class="User-name">Varun</h3>
+        <h4 class="designation">varun9999@gmail.com</h4>
+        <div class="contact-btn">
+         
+          <button type="button" class="btn btn-success">Message</button>
+        </div>
+        <div class="profile-details">
+          <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Overview</a></li>
+           
+            <li><a href="#"><i class="fas fa-flag"></i> Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="div-box">
+        <div class="User-img">
+          <img src="c1.jpg">
+        </div>
+        <h3 class="User-name">Vigneshwar</h3>
+        <h4 class="designation">vignesh987@gmail.com</h4>
+        <div class="contact-btn">
+         
+          <button type="button" class="btn btn-success">Message</button>
+        </div>
+        <div class="profile-details">
+          <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Overview</a></li>
+            
+            <li><a href="#"><i class="fas fa-flag"></i> Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="div-box">
+        <div class="User-img">
+          <img src="c1.jpg">
+        </div>
+        <h3 class="User-name">Nabin</h3>
+        <h4 class="designation">nabin456@gmail.com</h4>
+        <div class="contact-btn">
+        
+          <button type="button" class="btn btn-success">Message</button>
+        </div>
+        <div class="profile-details">
+          <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Overview</a></li>
+           
+            <li><a href="#"><i class="fas fa-flag"></i> Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>
-

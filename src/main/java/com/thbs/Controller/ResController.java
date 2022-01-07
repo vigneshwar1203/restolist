@@ -1,23 +1,15 @@
 package com.thbs.Controller;
 
-import com.thbs.Model.Customer;
-import com.thbs.Model.Users;
-import com.thbs.Model.restaurants;
-import com.thbs.Repository.CustRepo;
-import com.thbs.Repository.RestaurantRepo;
-import com.thbs.Repository.userRepository;
+import com.thbs.Model.*;
+import com.thbs.Repository.*;
 import com.thbs.UserService.UserService;
 import com.thbs.constants.PropertyConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
-
-import static com.thbs.constants.PropertyConstants.SIGNUP;
 
 
 @Controller
@@ -35,17 +27,29 @@ public class ResController
     @Autowired
     userRepository userRepo;
 
-    @PostMapping(PropertyConstants.TYPE)
-    public String admin(HttpServletRequest request)
+    @Autowired
+    AdminRepo ar;
+
+    @Autowired
+    BookingRepo Bookrepo;
+
+    @RequestMapping("check")
+    public String Adminlogin(@ModelAttribute("admin") Admin a1)
     {
-        if(request.getParameter("value").equals("admin")&&request.getParameter("value").equals("admin123"))
+        System.out.println("Done");
+        Optional<Admin> searchAdmin = ar.findById(a1.getUsername());
+        if(searchAdmin.isPresent())
         {
+            Admin c1= searchAdmin.get();
+            if(a1.getPassword().equals(c1.getPassword()))
+            {
+                System.out.println("success");
+                return "adminoperations.html";
+            }
             return "admin_login.html";
         }
         else
-        {
-            return "index.html";
-        }
+            return "admin_login.html";
     }
 
     @RequestMapping(value = PropertyConstants.ADMINOP,method = RequestMethod.GET)
@@ -64,7 +68,7 @@ public class ResController
                 restaurantRepo.delete(rest);
                 break;
         }
-        return "adminoperations";
+        return "adminoperations.html";
     }
 
     @RequestMapping(value=PropertyConstants.SIGNUP, method=RequestMethod.GET)
@@ -99,19 +103,17 @@ public class ResController
             return "login.html";
     }
 
-    @GetMapping("/restaur")
-    private List<restaurants> getAllBooks()
+    @RequestMapping("book")
+    public String book(HttpServletRequest request, Booking books)
     {
-        List<restaurants> books = new ArrayList<restaurants>();
-        restaurantRepo.findAll().forEach(books1 -> books.add(books1));
-        return books;
-    }
-
-    @GetMapping("/us")
-    private List<Customer> getAllCustomer()
-    {
-        List<Customer> books = new ArrayList<Customer>();
-        custRepo.findAll().forEach(books1 -> books.add(books1));
-        return books;
+        switch (request.getParameter("value"))
+        {
+            case "Next":
+                System.out.println("done");
+                System.out.println(books);
+                Bookrepo.save(books);
+                break;
+        }
+        return "booking.html";
     }
 }
