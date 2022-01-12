@@ -31,7 +31,7 @@ public class ResController
     AdminRepo ar;
 
     @Autowired
-    BookingRepo Bookrepo;
+    bookingRepo Bookrepo;
 
     @RequestMapping("check")
     public String Adminlogin(@ModelAttribute("admin") Admin a1)
@@ -80,7 +80,8 @@ public class ResController
                 System.out.println("done");
                 System.out.println(cust);
                 custRepo.save(cust);
-                break;
+                return "login.html";
+
         }
         return "index.html";
     }
@@ -104,7 +105,7 @@ public class ResController
     }
 
     @RequestMapping("book")
-    public String book(HttpServletRequest request, Booking books)
+    public String book(HttpServletRequest request, BookingDetails books)
     {
         switch (request.getParameter("value"))
         {
@@ -114,6 +115,6 @@ public class ResController
                 Bookrepo.save(books);
                 break;
         }
-        return "booking.html";
+        return "gallery.html";
     }
 }

@@ -29,9 +29,9 @@
         </div>
         <!--login form-->
         <div class="form-inner">
-            <form action="rest" class="login">
+            <form action="rest" class="login" onsubmit="getgmail()">
                 <div class="field">
-                    <input type="text" name="email" placeholder="Email Address" required>
+                    <input type="text" name="email" id="emailId" placeholder="Email Address" onblur="setEmail()" required>
                 </div>
                 <div class="field">
                     <input type="password" name="password" placeholder="Password" required>
@@ -91,6 +91,16 @@
          const loginBtn = document.querySelector("label.login");
          const signupBtn = document.querySelector("label.signup");
          const signupLink = document.querySelector("form .signup-link a");
+         function setEmail() {
+             sessionStorage.setItem("email", document.getElementById("emailId").value);
+         }
+         function getgmail(){
+             const emailId=document.getElementById("emailId").value;
+             sessionStorage.setItem("user",emailId);
+             console.log("debug",sessionStorage.getItem("user"));
+         }
+        // let emailId=document.querySelector('input[name="email"]');
+      //  sessionStorage.setItem("email", document.getElementById("emailId").innerText);
          signupBtn.onclick = (()=>{
            loginForm.style.marginLeft = "-50%";
            loginText.style.marginLeft = "-50%";
@@ -98,6 +108,7 @@
          loginBtn.onclick = (()=>{
            loginForm.style.marginLeft = "0%";
            loginText.style.marginLeft = "0%";
+           //sessionStorage.setItem("email", document.getElementById("emailId").value);
          });
          signupLink.onclick = (()=>{
            signupBtn.click();
